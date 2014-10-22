@@ -9,6 +9,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @todos = @list.todos
     respond_with(@list)
   end
 

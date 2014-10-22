@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/rails-api/active_model_serializers.git
+  revision: 89f87bf855d5327b1d64715daba8109a7af979d4
+  branch: 0-9-stable
+  specs:
+    active_model_serializers (0.9.0)
+      activemodel (>= 3.2)
+
+GIT
   remote: git://github.com/reactjs/react-rails.git
   revision: b308749911c127757eb192e3229b3627bd92c432
   specs:
@@ -30,8 +38,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.3)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    active_model_serializers (0.9.0)
-      activemodel (>= 3.2)
     activejob (4.2.0.beta2)
       activesupport (= 4.2.0.beta2)
       globalid (>= 0.3.0)
@@ -63,6 +69,7 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.2.2)
+    ffaker (1.25.0)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -153,8 +160,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers
+  active_model_serializers!
   coffee-rails (~> 4.0.0)
+  ffaker
   jbuilder (~> 2.0)
   jquery-rails (~> 4.0.0.beta2)
   pg

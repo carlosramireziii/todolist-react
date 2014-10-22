@@ -40,7 +40,10 @@ gem 'responders', '~> 2.0'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
 # JSON serializers
-gem 'active_model_serializers'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-9-stable'
+
+# Fake data for populating database
+gem 'ffaker'
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
