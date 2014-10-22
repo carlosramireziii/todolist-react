@@ -5,6 +5,13 @@
   <%= @list.name %>
 </p>
 
+Server-side:
+
+<%= form_for [@list, Todo.new] do |f| %>
+  <%= f.text_field :title, placeholder: 'New todo' %>
+  <%= f.submit %>
+<% end %>
+
 <ul>
   <% @todos.each do |todo| %>
     <li>
@@ -12,6 +19,13 @@
     </li>
   <% end %>
 </ul>
+
+<hr>
+
+Client-side:
+
+<div id='todos' data-list-id="<%= @list.id %>">
+</div>
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>

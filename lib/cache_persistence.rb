@@ -22,7 +22,7 @@ module CachePersistence
       end
 
       def persisted?
-        id.presence
+        id.present?
       end
 
     end
@@ -75,6 +75,10 @@ module CachePersistence
       def count
         database = CacheDatabase.new(self.to_s)
         database.fetch_all.size
+      end
+
+      def create(attrs = {})
+        self.new(attrs).tap { |r| r.save }
       end
 
     end

@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+  respond_to :html, only: [:create]
   respond_to :json
 
   before_action :set_list
@@ -8,7 +9,7 @@ class TodosController < ApplicationController
   end
 
   def create
-    respond_with @list.create(todo_params)
+    respond_with @list, Todo.create(todo_params_with_list), location: @list
   end
 
   private
@@ -18,6 +19,11 @@ class TodosController < ApplicationController
   end
 
   def todo_params
-    params.require(:todo).permit(:title, :finished)
+    params.require(:todo).permit(:title)
+  end
+
+  # needed for cache persistence
+  def todo_params_with_list
+    todo_params.merge(list_id: @list.id)
   end
 end
