@@ -33,8 +33,14 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Responders
+gem 'responders', '~> 2.0'
+
 # Client-side JS framework
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+
+# JSON serializers
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
