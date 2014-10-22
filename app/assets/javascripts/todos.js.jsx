@@ -1,24 +1,40 @@
 /** @jsx React.DOM */
 var Todo = React.createClass({
+  getInitialState: function () {
+    return {finished: this.props.finished};
+  },
+  handleChange: function (event) {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      type: 'PATCH',
+      data: {"todo": { finished: event.target.checked }},
+      success: function(data) {
+        this.setState({ finished: data['finished'] });
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+    return false;
+  },
   render: function () {
-    if (this.props.finished) {
-      return (
-        <li><s>{this.props.title}</s></li>
-      );
-    }
-    else {
-      return (
-        <li>{this.props.title}</li>
-      );
-    }
+    var css = (this.state.finished) ? 'finished' : '';
+    return (
+      <li>
+        <input type="checkbox" checked={this.state.finished} onChange={this.handleChange}/>
+        <span className={css}>{this.props.title}</span>
+      </li>
+    );
   }
 });
 
 var TodoList = React.createClass({
   render: function () {
     var todoNodes = this.props.todos.map(function (todo, index) {
+      var todoUrl = "/todos/" + todo.id + ".json";
       return (
-        <Todo title={todo.title} finished={todo.finished} key={index} />
+        <Todo title={todo.title} finished={todo.finished} url={todoUrl} key={index} />
         );
     });
 

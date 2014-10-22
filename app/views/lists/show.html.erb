@@ -15,6 +15,7 @@ Server-side:
 <ul>
   <% @todos.each do |todo| %>
     <li>
+      <%= check_box_tag nil, nil, todo.finished %>
       <%= render_todo(todo) %>
     </li>
   <% end %>
