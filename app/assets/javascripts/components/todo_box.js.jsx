@@ -16,7 +16,7 @@ var TodoBox = React.createClass({
   handleTodoSubmit: function(todo) {
     var todos = this.state.data;
     todos.push(todo);
-    this.setState({todos: todos}, function() {
+    this.setState({data: todos}, function() {
       $.ajax({
         url: this.props.url,
         dataType: 'json',
