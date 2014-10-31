@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ListsControllerTest < ActionController::TestCase
   setup do
-    @list = lists(:one)
+    @list = List.create(name: 'Test List')
   end
 
   test "should get index" do
@@ -44,6 +44,6 @@ class ListsControllerTest < ActionController::TestCase
       delete :destroy, id: @list
     end
 
-    assert_redirected_to lists_path
+    assert_redirected_to list_path(assigns(:list))
   end
 end
