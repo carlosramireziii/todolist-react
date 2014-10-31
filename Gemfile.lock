@@ -96,6 +96,8 @@ GEM
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     pg (0.17.1)
+    qunit-rails (0.0.7)
+      railties
     rack (1.6.0.beta)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -170,6 +172,7 @@ DEPENDENCIES
   jquery-rails (~> 4.0.0.beta2)
   jquery-turbolinks
   pg
+  qunit-rails
   rails (= 4.2.0.beta2)
   react-rails (~> 1.0.0.pre)!
   responders (~> 2.0)
